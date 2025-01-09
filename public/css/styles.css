@@ -197,12 +197,11 @@ nav ul li:hover {
 .upgrades-item a {
   font-size: 1rem;
   font-weight: 400;
-  color: #000;
+  color: #fff;
   text-decoration: none;
   margin-top: 18px;
-  padding-top: 10px;
-  position: absolute; 
-  bottom: -22px; 
+  padding-top: 0px;
+  position: static; 
 }
 
 .upgrades-item a:hover {
@@ -320,6 +319,7 @@ nav ul li:hover {
     padding: 16px 40px;
     border-radius: 8px;
     text-align: center;
+    width: 100%;
   }
 
   .upgrades-item img {
@@ -331,7 +331,7 @@ nav ul li:hover {
   .upgrades-item a {
     font-size: 1rem;
     font-weight: 400;
-    color: #000;
+    color: #fff;
     text-decoration: none;
     margin-top: 8px;
     display: block;
