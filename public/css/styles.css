@@ -12,8 +12,11 @@ body {
   padding: 0;
   line-height: 1.6;
   color: #000;
-
   padding: 5px;
+}
+
+h1{
+  font-size: 1.5rem;
 }
 
 h1,h2,h3,h4,h5, nav{
@@ -106,15 +109,14 @@ nav ul li:hover {
 }
 
 .hero-content {
-  background-color: rgba(255, 255, 255, 0.75); /* Fondo semitransparente */
+  background-color: rgba(255, 255, 255, 0.75); 
   padding: 10px;
-  margin-left: 0px; /* Espaciado desde el borde izquierdo */
-  border-radius: 8px; /* Bordes redondeados para el cuadro */
-  max-width: 300px; /* Ajusta el ancho máximo del cuadro */
+  margin-left: 0px; 
+  border-radius: 8px; 
+  max-width: 300px; 
 }
 
 .hero-content h1 {
-  font-size: 1.8rem; /* Tamaño del título */
   margin-bottom: 10px;
 }
 
@@ -143,19 +145,26 @@ nav ul li:hover {
   color: #3B3D3D;;
 }
 
+
 /* Reviews Section */
 .reviews ul {
-  list-style-type: none;
+  list-style-type: disc;
+  
   padding: 0;
 }
 
 .reviews ul li {
   margin: 10px 0;
+  list-style-type: disc;
+  list-style: inside;
 }
+
+
 
 /* Upgrades Section */
 .upgrades{
-  padding-bottom: 10px;
+  padding-bottom: 40px;
+  text-align: center;
 }
 
 .upgrades h2{
@@ -164,26 +173,173 @@ nav ul li:hover {
 .upgrades-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  justify-items: center;
-  background-color: #fff;
+  gap: 20px; 
 }
 
-.upgrades-grid img {
-  max-width: 70px;
-  max-height: 70px;
+.upgrades-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #3B3D3D; 
+  padding: 10px;
   border-radius: 5px;
-  
-  text-align: center;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
+.upgrades-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 12px;
+}
 
-
-
-.upgrades-grid a {
-  display: block;
-  text-align: center;
-  margin-top: 5px;
+.upgrades-item a {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #000;
   text-decoration: none;
-  color: #007BFF;
+  margin-top: 18px;
+  padding-top: 10px;
+  position: absolute; 
+  bottom: -22px; 
+}
+
+.upgrades-item a:hover {
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/* Media query for desktop view*/
+@media screen and (min-width: 768px){
+  /* HEADER */
+  #top-header .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  nav ul li {
+    font-size: 1.2rem;
+  }
+
+  /* HERO */
+  #hero {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-image: url('/images/vehicles/delorean.jpg');
+    background-size: contain;
+    background-position: center;
+    height: 85vh;
+    padding: 0 5%;
+    position: relative;
+  }
+
+  #hero .hero-content {
+    max-width: 450px;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.8); 
+    padding: 20px 20px 20px 0px;
+    border-radius: 8px;
+    position: relative;
+    left: 0%; 
+  }
+
+  #hero .hero-content h1{
+    font-size: 2.5rem;
+  }
+
+  #hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+
+  #hero p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+
+  /* Reviews and Upgrades */
+  
+  .reviews-upgrades-container {
+    display: flex;
+    gap: 40px; 
+    justify-content: space-between; 
+    padding: 20px 5%;
+    flex-direction: row-reverse;
+
+  }
+
+  .reviews,
+  .upgrades {
+    flex: 1; 
+    padding: 20px;
+    background-color: #fff;
+  }
+
+  .reviews h2,
+  .upgrades h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+
+  /* Reviews */
+  .reviews ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .reviews ul li {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+
+  /* Upgrades */
+  .upgrades-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 30px;
+    justify-items: center;
+  }
+
+  .upgrades-item {
+    background-color: #3B3D3D;
+    padding: 16px 40px;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .upgrades-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+
+  .upgrades-item a {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #000;
+    text-decoration: none;
+    margin-top: 8px;
+    display: block;
+  }
+
+  .upgrades-item a:hover {
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
 }
