@@ -34,6 +34,15 @@ footer {
   padding: 10px 0;
 }
 
+footer a{
+  color: #fff;
+  font-weight: 400;
+}
+
+footer a:hover{
+  font-weight: 600;
+}
+
 /* Header */
 #top-header {
   background-color: #fff;
@@ -230,6 +239,7 @@ h1{
 
 #inv-display li{
   padding: 20px 0;
+  text-align: center;
 }
 
 #inv-display li::marker{
@@ -247,10 +257,65 @@ h1{
   font-weight: 600;
 }
 
+ /* Details View from Items Display */
+
+ .vehicle-detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem;
+}
+
+.vehicle-detail img {
+  max-width: 100%;
+  height: auto;
+  flex: 1 1 300px;
+}
+
+.vehicle-info {
+  flex: 1 1 300px;
+}
+
+.vehicle-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.vehicle-actions .btn {
+  display: inline-block;
+  background-color: #3B3D3D;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #3B3D3D;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.vehicle-actions .btn:hover {
+  background-color: transparent;
+  border-color: #3B3D3D;
+  color: #3B3D3D;;
+}
+
+.error-container {
+  text-align: center;
+  padding: 40px 0px;
+}
+
+.error-container img {
+  max-width: 100%;
+  height: auto; 
+  margin-bottom: 1rem; 
+}
 
 
 
-/* Media query for desktop view*/
+/****************** Media query for desktop view ********************/
 @media screen and (min-width: 768px){
   /* HEADER */
   #top-header .header-container {
@@ -392,27 +457,31 @@ h1{
     flex-wrap: wrap;
   }
   
+  #inv-display li{
+    padding: 20px 20px;
+  }
 
-#inv-display li{
-  padding: 20px 20px;
+  #inv-display li a img{
+    width: 350px;
+    height: 200px;
+  }
+
+  #inv-display .namePrice h2 a{
+    color: #000;
+    font-weight: 400;
+    text-decoration: none;
+  }
+
+  #inv-display .namePrice h2 a:hover{
+    color: #000;
+    font-weight: 600;
+  }
+
+   /* Details View from Items Display */
+  .vehicle-detail {
+    flex-wrap: nowrap;
+  }
 }
 
-#inv-display li a img{
-  width: 350px;
-  height: 200px;
-}
 
-#inv-display .namePrice h2 a{
-  color: #000;
-  font-weight: 400;
-  text-decoration: none;
-}
-
-#inv-display .namePrice h2 a:hover{
-  color: #000;
-  font-weight: 600;
-}
-
-/**************************************Fix It *************************/
-
-}
+ 

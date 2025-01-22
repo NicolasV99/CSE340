@@ -57,6 +57,35 @@ Util.buildClassificationGrid = async function(data){
     return grid
 }
 
+/* ***************************
+ * Build vehicle detail HTML
+ * ************************** */
+Util.buildVehicleDetail = function(data) {
+  if (!data) return "<p>Vehicle not found.</p>";
+
+  const formatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
+  const price = formatter.format(data.inv_price);
+  const mileage = new Intl.NumberFormat('en-US').format(data.inv_miles);
+
+  return `
+    <div class="vehicle-detail">
+      <img src="${data.inv_image}" alt="Image of ${data.inv_make} ${data.inv_model}">
+      <div class="vehicle-info">
+        <h1>${data.inv_make} ${data.inv_model}</h1>
+        <p><strong>Price:</strong> ${price}</p>
+        <p><strong>Year:</strong> ${data.inv_year}</p>
+        <p><strong>Mileage:</strong> ${mileage} miles</p>
+        <p><strong>Description:</strong> ${data.inv_description}</p>
+        <div class="vehicle-actions">
+          <button class="btn" href="#">Schedule Test Drive</button>
+          <button class="btn" href="#">Contact Us</button>
+      </div>
+      </div>
+    </div>
+  `;
+};
+
+
 /* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 

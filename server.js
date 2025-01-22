@@ -18,6 +18,7 @@ const baseController = require("./controllers/baseController")
 const inventoryRoute = require("./routes/inventoryRoute")
 
 const utilities = require("./utilities/index")
+const errorRoutes = require("./routes/errorRoute");
 
 
 /* ***********************
@@ -42,10 +43,13 @@ app.get("/", utilities.handleErrors(baseController.buildHome))
 // Inventory routes
 app.use("/inv", inventoryRoute)
 
+app.use("/", errorRoutes);
+
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})
 })
+
 
 
 /* ***********************
