@@ -34,7 +34,7 @@ async function getInventoryById(invId) {
       `SELECT * FROM public.inventory WHERE inv_id = $1`,
       [invId]
     );
-    return data.rows[0]; // Retornar el primer resultado
+    return data.rows[0]; 
   } catch (error) {
     console.error("getInventoryById error " + error);
   }
