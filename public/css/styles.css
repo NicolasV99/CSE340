@@ -299,7 +299,7 @@ h1{
 .vehicle-actions .btn:hover {
   background-color: transparent;
   border-color: #3B3D3D;
-  color: #3B3D3D;;
+  color: #3B3D3D;
 }
 
 .error-container {
@@ -313,6 +313,291 @@ h1{
   margin-bottom: 1rem; 
 }
 
+/**** Login Page ****/
+
+/* Flash Messages */
+.flash-error {
+  background: #ffdddd;
+  color: #d8000c;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+.flash-success {
+  background: #ddffdd;
+  color: #4f8a10;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+/* Form Styles */
+
+.login-container {
+  width: 90%;
+  max-width: 400px;
+  background-color: #f3f3f3;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 10vh auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.login-container h1 {
+  margin-bottom: 20px;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-container button {
+  display: inline-block;
+  background-color: #3B3D3D;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #3B3D3D;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.login-container button:hover {
+  background-color: transparent;
+  border-color: #3B3D3D;
+  color: #3B3D3D;
+}
+
+
+/* Registration Link */
+.login-container p {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+}
+
+.login-container p a {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-container p a:hover {
+  text-decoration: underline;
+}
+
+
+/**** Register Page ****/
+/* Form container */
+.register-container {
+  background-color: #f3f3f3;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 10vh auto;
+  width: 100%;
+}
+
+/* Heading */
+h1 {
+  text-align: center;
+  color: #3B3D3D;
+}
+/* Form fields */
+.register-form .form-group {
+  margin-bottom: 15px;
+}
+
+.register-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.register-form .submit-btn {
+  display: inline-block;
+  background-color: #3B3D3D;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #3B3D3D;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+}
+
+.register-form .submit-btn:hover {
+  background-color: transparent;
+  border-color: #3B3D3D;
+  color: #3B3D3D;
+}
+
+.register-form button[type="button"] {
+  display: inline-block;
+  background-color: transparent;
+  color: #3B3D3D;
+  text-decoration: none;
+  padding: 10px 10px;
+  border-radius: 5px;
+  border: 1px solid #3B3D3D;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.register-form button[type="button"]:hover {
+  background-color: #3B3D3D;
+  color: #fff;
+}
+
+/***Inventory Management Page***/
+
+.management-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px 0px; 
+}
+
+.management-container div {
+  margin: 10px 0; 
+}
+.management-container a {
+  color: #000;
+  text-decoration: underline;
+  font-weight: normal;
+  transition: font-weight 0.2s ease-in-out;
+}
+
+.management-container a:hover {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/*Classification Form*/
+.classification-form {
+  background-color: #f3f3f3;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  margin: 40px auto; /* Centrado */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.classification-form label {
+  font-weight: bold;
+}
+
+.classification-form input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.classification-form button{
+  display: inline-block;
+  background-color: transparent;
+  color: #3B3D3D;
+  text-decoration: none;
+  padding: 10px 10px;
+  border-radius: 5px;
+  border: 1px solid #3B3D3D;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.classification-form button:hover {
+  background-color: #3B3D3D;
+  color: #fff;
+}
+
+.flash-message{
+  text-align: center;
+  font-weight: bold;
+}
+
+/*Inventory Form*/
+
+.add-inventory-form {
+  background-color: #f3f3f3;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 100%; /* Asegura que el formulario no se desborde */
+  margin: 20px auto; /* Centrado */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.add-inventory-form label {
+  font-weight: bold;
+}
+
+.add-inventory-form input,
+.add-inventory-form select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%; /* Asegura que los campos ocupen el ancho completo */
+}
+
+.add-inventory-form button {
+  display: inline-block;
+  background-color: transparent;
+  color: #3B3D3D;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #3B3D3D;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  font-size: 14px;
+  width: 100%; /* Hacer que el botón ocupe todo el ancho */
+}
+
+.add-inventory-form button:hover {
+  background-color: #3B3D3D;
+  color: #fff;
+}
 
 
 /****************** Media query for desktop view ********************/
@@ -481,6 +766,58 @@ h1{
   .vehicle-detail {
     flex-wrap: nowrap;
   }
+
+  /* Login Page */
+  label {
+    font-size: 1.1rem;
+  }
+
+  input {
+    font-size: 1.1rem;
+  }
+
+  .login-container {
+    width: 50%;
+    max-width: 500px;
+    padding: 30px;
+    margin: 15vh auto;
+  }
+
+  .login-container button {
+    font-size: 1.1rem;
+    padding: 12px;
+  }
+
+
+  /* Register Page */
+  .register-container {
+    max-width: 500px;
+  }
+
+  /*Inventory Form*/
+
+  .add-inventory-form {
+    max-width: 600px; /* Define un máximo ancho para escritorio */
+    margin: 40px auto; /* Centrado */
+    padding: 30px;
+  }
+
+  .add-inventory-form label {
+    font-size: 16px;
+  }
+
+  .add-inventory-form input,
+  .add-inventory-form select {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .add-inventory-form button {
+    width: auto; /* Hacer que el botón tenga un tamaño más pequeño en escritorio */
+    padding: 12px 20px;
+    font-size: 16px;
+  }
+
 }
 
 
