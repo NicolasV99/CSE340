@@ -73,7 +73,4 @@ async function addInventoryItem(classification_id, inv_make, inv_model, inv_year
 }
 
 
-
-
-
 module.exports = {getClassifications, getInventoryByClassificationId, getInventoryById, addClassification, addInventoryItem}

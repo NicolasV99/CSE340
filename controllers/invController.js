@@ -111,7 +111,7 @@ invCont.showAddInventoryForm = async function (req, res) {
     title: "Add Inventory Item",
     nav,
     classificationDropdown,
-    message: null, // Asegura que siempre se pase un valor
+    message: null, 
     inv_make: null,
     inv_model: null,
     inv_year: null,
@@ -134,13 +134,12 @@ invCont.processAddInventory = async function (req, res) {
 
   const { classification_id, inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color } = req.body;
 
-  // Validación del servidor
   if (!classification_id || !inv_make || !inv_model || !inv_year || !inv_description || !inv_image || !inv_thumbnail || !inv_price || !inv_miles || !inv_color) {
     return res.status(400).render("./inventory/add-inventory", {
       title: "Add Inventory Item",
       nav,
       classificationDropdown,
-      message: "All fields are required.", // Asegura que haya un mensaje
+      message: "All fields are required.", 
       inv_make,
       inv_model,
       inv_year,
@@ -153,12 +152,11 @@ invCont.processAddInventory = async function (req, res) {
     });
   }
 
-  // Intentar insertar en la base de datos
   const insertResult = await invModel.addInventoryItem(classification_id, inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color);
 
   if (insertResult) {
     req.flash("notice", "New vehicle added successfully.");
-    return res.redirect("/inv"); // Asegura que esta ruta exista en inventoryRoutes.js
+    return res.redirect("/inv"); 
   }
 };
 module.exports = invCont

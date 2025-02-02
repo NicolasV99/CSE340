@@ -38,7 +38,7 @@ async function registerAccount(req, res) {
   let nav = await utilities.getNav()
   const { account_firstname, account_lastname, account_email, account_password } = req.body
 
-  console.log("Formulario recibido:", req.body); // Verifica si se reciben los datos correctamente
+  console.log("Formulario recibido:", req.body); 
 
   const regResult = await accountModel.registerAccount(
     account_firstname,
