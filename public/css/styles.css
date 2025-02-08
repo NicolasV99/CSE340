@@ -801,6 +801,89 @@ noscript {
 }
 
 
+/*Delete Confirmation View*/
+
+/* Delete Confirmation Container */
+.delete-container {
+  max-width: 90%;
+  width: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f3f3f3; /* Light grey background */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Heading */
+.delete-container h1 {
+  font-size: 1.5rem;
+  color: #3B3D3D;
+  margin-bottom: 15px;
+}
+
+/* Flash Message */
+.flash-message {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Form Styling */
+.delete-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Labels */
+.delete-container label {
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+  display: block;
+}
+
+/* Readonly Inputs */
+.delete-container input[readonly] {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border-radius: 4px;
+  text-align: center;
+}
+
+/* Buttons */
+.delete-container button {
+  width: 50%;
+  background-color: transparent;
+  color: #3B3D3D;
+  text-decoration: none;
+  margin-top: 15px;
+  padding: 10px 10px;
+  border-radius: 5px;
+  border: 1px solid #3B3D3D;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.delete-container button:hover {
+  background-color: #3B3D3D;
+  color: #fff;
+}
+
+/* Warning Text */
+.delete-container .delete-message{
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
 /*Management View*/
 .management{
   text-align: center;
@@ -1080,6 +1163,26 @@ noscript {
     font-weight: bold;
     text-align: center;
     margin-top: 20px;
+  }
+
+  /*Delete Confirmation View*/
+  .delete-container {
+    max-width: 50%;
+    padding: 30px;
+  }
+
+  .delete-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .delete-container input[readonly] {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  .delete-container button {
+    font-size: 1.1rem;
+    padding: 12px 25px;
   }
 
 }
