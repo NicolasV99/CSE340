@@ -485,25 +485,132 @@ h1 {
 /***Inventory Management Page***/
 
 .management-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 40px 0px; 
+  max-width: 650px;
+  margin: 40px auto;
+  padding: 25px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-.management-container div {
-  margin: 10px 0; 
-}
-.management-container a {
+/* Style the heading */
+.management-container h1 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
   color: #000;
-  text-decoration: underline;
-  font-weight: normal;
-  transition: font-weight 0.2s ease-in-out;
+}
+
+/* Flash Message Styling */
+.flash-message {
+  padding: 10px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #000;
+}
+
+/* Flexbox for buttons to align side by side */
+.management-container div {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+/* Button (Link) Styling */
+.management-container a {
+  display: inline-block;
+  background-color: transparent;
+  color: #3B3D3D;
+  text-decoration: none;
+  padding: 10px 10px;
+  border-radius: 5px;
+  border: 1px solid #3B3D3D;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  font-size: 14px;
+  width: 200px;
 }
 
 .management-container a:hover {
+  background-color: #3B3D3D;
+  color: #fff;
+}
+
+/* Manage Inventory Heading */
+.management-container h2 {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #000;
+}
+
+/* Paragraph Styling */
+.management-container p {
+  font-size: 1rem;
+  color: #3B3D3D;
+}
+
+/* Dropdown Container */
+#classificationForm {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Dropdown Styling */
+#classificationList {
+  width: 100%;
+  max-width: 300px;
+  padding: 8px;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+#classificationList:hover {
+  border-color: #3B3D3D;
+}
+
+/* Table Styling (Initially Empty) */
+#inventoryDisplay {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+#inventoryDisplay th, #inventoryDisplay td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#inventoryDisplay th {
+  background-color: #3B3D3D;
+  color: white;
+}
+
+#inventoryDisplay tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#inventoryDisplay tr:hover {
+  background-color: #e3e3e3;
+}
+
+/* Noscript Message */
+noscript {
+  display: block;
+  color: red;
   font-weight: bold;
-  text-decoration: underline;
+  text-align: center;
+  margin-top: 20px;
 }
 
 /*Classification Form*/
@@ -598,6 +705,12 @@ h1 {
   background-color: #3B3D3D;
   color: #fff;
 }
+
+/*Management View*/
+.management{
+  text-align: center;
+}
+
 
 
 /****************** Media query for desktop view ********************/

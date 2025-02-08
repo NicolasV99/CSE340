@@ -25,6 +25,8 @@ const session = require("express-session")
 const flash = require('connect-flash');
 const pool = require('./database/')
 
+const cookieParser = require("cookie-parser")
+
 
 /* ***********************
  * Middleware
@@ -40,6 +42,10 @@ app.use(session({
   name: 'sessionId',
 }))
 app.use(flash());
+
+app.use(cookieParser())
+
+app.use(utilities.checkJWTToken)
 
 // Express Messages Middleware
 //app.use(require('connect-flash')())
