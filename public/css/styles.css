@@ -579,32 +579,49 @@ h1 {
 }
 
 /* Table Styling (Initially Empty) */
+
 #inventoryDisplay {
-  width: 100%;
-  margin-top: 20px;
-  border-collapse: collapse;
+  overflow-x: auto;
+  white-space: nowrap;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-#inventoryDisplay th, #inventoryDisplay td {
-  border: 1px solid #ddd;
+/* Stack columns for better mobile view */
+#inventoryDisplay th,
+#inventoryDisplay td {
+  display: block;
+  text-align: center;
   padding: 8px;
-  text-align: left;
 }
 
-#inventoryDisplay th {
+#inventoryDisplay tr {
+  border-bottom: 2px solid #ddd;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* 📌 Modify/Delete buttons stacked & centered */
+#inventoryDisplay td a {
+  display: block;
+  background-color: transparent;
+  color: #3B3D3D;
+  text-decoration: none;
+  padding: 10px 10px;
+  border-radius: 5px;
+  border: 1px solid #3B3D3D;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#inventoryDisplay td a:hover {
   background-color: #3B3D3D;
-  color: white;
+  color: #fff;
 }
 
-#inventoryDisplay tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-#inventoryDisplay tr:hover {
-  background-color: #e3e3e3;
-}
-
-/* Noscript Message */
 noscript {
   display: block;
   color: red;
@@ -705,6 +722,84 @@ noscript {
   background-color: #3B3D3D;
   color: #fff;
 }
+
+/***Edit Inventory View ***/
+.inventory-edit-container {
+  width: 90%;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f3f3f3;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.inventory-edit-container h1 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.edit-inventory-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-inventory-form label {
+  text-align: left;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #333;
+}
+
+.edit-inventory-form input,
+.edit-inventory-form textarea,
+.edit-inventory-form select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.edit-inventory-form textarea {
+  height: 80px;
+  resize: none;
+}
+
+.edit-inventory-form button {
+  width: 100%;
+  background-color: transparent;
+  color: #3B3D3D;
+  text-decoration: none;
+  margin-top: 15px;
+  padding: 10px 10px;
+  border-radius: 5px;
+  border: 1px solid #3B3D3D;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.edit-inventory-form button:hover {
+  background-color: #3B3D3D;
+  color: #fff;
+}
+
+.edit-inventory-form select {
+  appearance: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+.edit-inventory-form select:hover {
+  border-color: #3B3D3D;
+}
+
 
 /*Management View*/
 .management{
@@ -929,6 +1024,62 @@ noscript {
     width: auto; /* Hacer que el botón tenga un tamaño más pequeño en escritorio */
     padding: 12px 20px;
     font-size: 16px;
+  }
+
+
+  /*Inventory Table*/
+    
+  /* Table Styling (Initially Empty) */
+  #inventoryDisplay {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+  }
+  
+  #inventoryDisplay th, #inventoryDisplay td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  #inventoryDisplay th {
+    background-color: #3B3D3D;
+    color: white;
+  }
+  
+  #inventoryDisplay tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  #inventoryDisplay tr:hover {
+    background-color: #e3e3e3;
+  }
+  
+  /*Edit Inventory View*/
+  .inventory-edit-container {
+    max-width: 600px;
+    padding: 30px;
+  }
+
+  .edit-inventory-form input,
+  .edit-inventory-form textarea,
+  .edit-inventory-form select {
+      font-size: 1.1em;
+      padding: 12px;
+  }
+
+  .edit-inventory-form button {
+      font-size: 1.1em;
+      padding: 12px;
+  }
+
+  /* Noscript Message */
+  noscript {
+    display: block;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
   }
 
 }

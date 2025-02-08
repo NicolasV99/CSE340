@@ -1,4 +1,5 @@
 const invModel = require("../models/inventory-model")
+const { body, validationResult } = require("express-validator");
 const Util = {}
 const jwt = require("jsonwebtoken")
 require("dotenv").config()
@@ -109,6 +110,57 @@ Util.buildClassificationList = async function (classification_id = null) {
   classificationList += "</select>"
   return classificationList
 }
+
+/* ******************************
+ *  Inventory Data Validation Rules
+ * ****************************** */
+Util.newInventoryRules = () => {
+  return [
+      body("classification_id").notEmpty().withMessage("Please select a classification."),
+      body("inv_make").trim().escape().notEmpty().withMessage("Please provide a make."),
+      body("inv_model").trim().escape().notEmpty().withMessage("Please provide a model."),
+      body("inv_year").isNumeric().withMessage("Please provide a valid year."),
+      body("inv_description").trim().escape().notEmpty().withMessage("Please provide a description."),
+      body("inv_image").trim().notEmpty().withMessage("Please provide an image path."),
+      body("inv_thumbnail").trim().notEmpty().withMessage("Please provide a thumbnail path."),
+      body("inv_price").isFloat({ min: 0 }).withMessage("Please provide a valid price."),
+      body("inv_miles").isInt({ min: 0 }).withMessage("Please provide valid mileage."),
+      body("inv_color").trim().escape().notEmpty().withMessage("Please provide a color."),
+  ];
+};
+
+/* ******************************
+*  Check Inventory Update Data
+* ****************************** */
+Util.checkUpdateData = async (req, res, next) => {
+  const { inv_id, classification_id, inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, inv_price, inv_miles, inv_color } = req.body;
+  
+  let errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+      let nav = await Util.getNav();
+      const classificationSelect = await Util.buildClassificationList(classification_id);
+
+      return res.render("./inventory/edit-inventory", {
+          title: `Edit ${inv_make} ${inv_model}`,
+          nav,
+          classificationSelect,
+          errors: errors.array(),
+          inv_id,
+          classification_id,
+          inv_make,
+          inv_model,
+          inv_year,
+          inv_description,
+          inv_image,
+          inv_thumbnail,
+          inv_price,
+          inv_miles,
+          inv_color,
+      });
+  }
+  next();
+};
 
 
 /* ****************************************

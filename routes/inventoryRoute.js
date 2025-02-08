@@ -20,5 +20,24 @@ router.post("/add-inventory", invController.processAddInventory);
 // Route to get inventory items as JSON
 router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON));
 
+//Route to Edit Inventory Item
+router.get("/edit/:inv_id", utilities.handleErrors(invController.buildEditInventoryView));
+
+//Route to Update Inventory Item
+router.post(
+    "/update",
+    utilities.newInventoryRules(), 
+    utilities.checkUpdateData, 
+    utilities.handleErrors(invController.updateInventory)
+);
+
+//Route to get delete confirmation view
+router.get("/delete/:inv_id", utilities.handleErrors(invController.buildDeleteConfirmationView));
+
+
+//Route to handle delete process
+router.post("/delete", utilities.handleErrors(invController.deleteInventoryItem));
+
+
 
 module.exports = router;
