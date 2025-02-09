@@ -68,6 +68,12 @@ footer a:hover{
   text-decoration: none;
 }
 
+#tools a:hover {
+  color: #3B3D3D;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
 
 
 /* Navigation */
@@ -885,9 +891,117 @@ noscript {
 }
 
 /*Management View*/
-.management{
+.management {
+  max-width: 90%;
+  width: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f3f3f3; /* Light grey background */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
+
+/* Heading */
+.management h1 {
+  font-size: 1.5rem;
+  color: #3B3D3D;
+  margin-bottom: 15px;
+}
+
+.management a{
+    color: #000;
+}
+
+.management a:hover{
+    color: #3B3D3D;
+    font-weight: 600;
+}
+
+/* Update View */ 
+
+.update-container {
+  max-width: 90%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Headings */
+.update-container h1, 
+.update-container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #3B3D3D;
+}
+
+/* Flash Messages & Errors */
+
+
+.error-messages {
+  background-color: #000;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Form Sections */
+.update-form {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+/* Labels */
+.update-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Inputs */
+.update-form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+/* Buttons */
+.update-form button {
+  width: 100%;
+  background-color: transparent;
+  color: #3B3D3D;
+  text-decoration: none;
+  margin-top: 15px;
+  padding: 10px 10px;
+  border-radius: 5px;
+  border: 1px solid #3B3D3D;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.update-form button:hover {
+  background-color: #3B3D3D;
+  color: #fff;
+}
+
+
+
+
 
 
 
@@ -1088,8 +1202,8 @@ noscript {
   /*Inventory Form*/
 
   .add-inventory-form {
-    max-width: 600px; /* Define un máximo ancho para escritorio */
-    margin: 40px auto; /* Centrado */
+    max-width: 600px; 
+    margin: 40px auto; 
     padding: 30px;
   }
 
@@ -1104,7 +1218,7 @@ noscript {
   }
 
   .add-inventory-form button {
-    width: auto; /* Hacer que el botón tenga un tamaño más pequeño en escritorio */
+    width: auto; 
     padding: 12px 20px;
     font-size: 16px;
   }
@@ -1183,6 +1297,43 @@ noscript {
   .delete-container button {
     font-size: 1.1rem;
     padding: 12px 25px;
+  }
+
+  /* Management View */ 
+  .management {
+    max-width: 50%;
+    padding: 30px;
+  }
+
+  .management h1 {
+    font-size: 1.8rem;
+  }
+
+  /* Update View */ 
+  .update-container {
+    max-width: 600px;
+    padding: 30px;
+  }
+
+  .update-container h1 {
+    font-size: 2rem;
+  }
+
+  .update-form {
+    padding: 20px;
+  }
+
+  .update-form label {
+    font-size: 1.1rem;
+  }
+
+  .update-form input {
+    font-size: 1.1rem;
+  }
+
+  .update-form button {
+    font-size: 1.1rem;
+    padding: 12px;
   }
 
 }

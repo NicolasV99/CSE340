@@ -206,4 +206,22 @@ Util.checkLogin = (req, res, next) => {
   }
 }
 
+/* ****************************************
+ *  Check if the user is an Employee or Admin
+ **************************************** */
+Util.checkAdmin = (req, res, next) => {
+  if (!res.locals.loggedin || !res.locals.accountData) {
+    req.flash("notice", "You must be logged in to access this page.");
+    return res.redirect("/account/login");
+  }
+
+  // Only allow Employees and Admins
+  if (res.locals.accountData.account_type === "Employee" || res.locals.accountData.account_type === "Admin") {
+    next();
+  } else {
+    req.flash("notice", "Unauthorized access. Admin or Employee rights required.");
+    return res.redirect("/account/login");
+  }
+};
+
 module.exports = Util
