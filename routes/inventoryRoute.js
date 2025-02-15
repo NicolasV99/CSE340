@@ -3,6 +3,7 @@ const router = new express.Router()
 const invController = require("../controllers/invController")
 const utilities = require("../utilities/")
 
+
 // Route to build inventory by classification view
 router.get("/type/:classificationId", invController.buildByClassificationId);
 
@@ -34,10 +35,7 @@ router.post(
 //Route to get delete confirmation view
 router.get("/delete/:inv_id",utilities.checkAdmin, utilities.handleErrors(invController.buildDeleteConfirmationView));
 
-
 //Route to handle delete process
 router.post("/delete",utilities.checkAdmin, utilities.handleErrors(invController.deleteInventoryItem));
-
-
 
 module.exports = router;

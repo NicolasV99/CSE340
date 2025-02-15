@@ -21,4 +21,9 @@
           <a href="/inv/">Manage Inventory</a>
       </p>
   <% } %>
+
+  <% if (locals.loggedin) { %>
+        <h3>Wishlist</h3>
+        <p><a href="/account/wishlist" class="wishlist-btn">View My Wishlist</a></p>
+  <% } %>
 </main>

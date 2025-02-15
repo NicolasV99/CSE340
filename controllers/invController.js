@@ -1,5 +1,6 @@
 const invModel = require("../models/inventory-model")
 const utilities = require("../utilities/")
+const accountModel = require("../models/account-model");
 
 const invCont = {}
 
@@ -24,25 +25,40 @@ invCont.buildByClassificationId = async function (req, res, next) {
  *  Build inventory detail view
  * ************************** */
 invCont.buildByInvId = async function (req, res, next) {
-  const invId = req.params.invId; 
-  const data = await invModel.getInventoryById(invId); 
-  const detailsHtml = utilities.buildVehicleDetail(data); 
+  const invId = parseInt(req.params.invId);
+  const data = await invModel.getInventoryById(invId);
   let nav = await utilities.getNav();
-  
-  if (data) {
-    res.render("./inventory/detail", {
-      title: `${data.inv_make} ${data.inv_model}`, 
-      nav,
-      detailsHtml,
-    });
-  } else {
-    res.status(404).render("./inventory/error", {
+
+  if (!data) {
+    return res.status(404).render("./inventory/error", {
       title: "Vehicle Not Found",
       nav,
       message: "The vehicle you are looking for does not exist.",
     });
   }
+
+  let isInWishlist = false;
+  if (res.locals.loggedin) {
+    const account_id = res.locals.accountData.account_id;
+    isInWishlist = await accountModel.getWishlist(account_id)
+      .then(wishlist => wishlist.some(item => item.inv_id === invId))
+      .catch(err => {
+        console.error("Wishlist check error:", err);
+        return false;
+      });
+
+  }
+
+  const detailsHtml = utilities.buildVehicleDetail(data, isInWishlist, res.locals.loggedin);
+
+  res.render("./inventory/detail", {
+    title: `${data.inv_make} ${data.inv_model}`,
+    nav,
+    detailsHtml,
+  });
 };
+
+
 
 /* ***************************
  *  Show Inventory Management View
@@ -316,15 +332,6 @@ invCont.deleteInventoryItem = async function (req, res, next) {
   } catch (error) {
     next(error); 
   }
-  /* const deleteResult = await invModel.deleteInventoryById(inv_id) 
-
-  if (deleteResult) {
-    req.flash("notice", "The vehicle was successfully deleted.")
-    return res.redirect("/inv/") 
-  } else {
-    req.flash("notice", "Sorry, the delete process failed.")
-    return res.redirect(`/inv/delete/${inv_id}`) 
-  } */
 }
 
 

@@ -5,6 +5,7 @@ const accountController = require("../controllers/accountController")
 const utilities = require("../utilities/")
 const regValidate = require('../utilities/account-validation')
 const accountValidate = require("../utilities/account-validation");
+const wishlistController = require("../controllers/wishlistController");
 
 
 // Default account route
@@ -57,6 +58,9 @@ router.post(
   utilities.handleErrors(accountController.updatePassword)
 );
 
-
+// Wishlist Routes
+router.get("/wishlist", utilities.checkLogin, utilities.handleErrors(wishlistController.viewWishlist));
+router.post("/wishlist/add", utilities.checkLogin, utilities.handleErrors(wishlistController.addToWishlist));
+router.post("/wishlist/remove", utilities.checkLogin, utilities.handleErrors(wishlistController.removeFromWishlist));
 
 module.exports = router;

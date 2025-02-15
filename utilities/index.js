@@ -64,12 +64,30 @@ Util.buildClassificationGrid = async function(data){
 /* ***************************
  * Build vehicle detail HTML
  * ************************** */
-Util.buildVehicleDetail = function(data) {
+Util.buildVehicleDetail = function(data, isInWishlist, loggedin) {
   if (!data) return "<p>Vehicle not found.</p>";
 
   const formatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
   const price = formatter.format(data.inv_price);
   const mileage = new Intl.NumberFormat('en-US').format(data.inv_miles);
+
+  // Wishlist button (only show if user is logged in)
+  let wishlistButton = "";
+  if (loggedin) {
+    if (!isInWishlist) {
+      wishlistButton = `
+        <form action="/account/wishlist/add" method="POST">
+          <input type="hidden" name="inv_id" value="${data.inv_id}">
+          <button type="submit" class="btn">Add to Wishlist</button>
+        </form>`;
+    } else {
+      wishlistButton = `
+        <form action="/account/wishlist/remove" method="POST">
+          <input type="hidden" name="inv_id" value="${data.inv_id}">
+          <button type="submit" class="btn">Remove from Wishlist</button>
+        </form>`;
+    }
+  }
 
   return `
     <div class="vehicle-detail">
@@ -81,13 +99,14 @@ Util.buildVehicleDetail = function(data) {
         <p><strong>Mileage:</strong> ${mileage} miles</p>
         <p><strong>Description:</strong> ${data.inv_description}</p>
         <div class="vehicle-actions">
-          <button class="btn" href="#">Schedule Test Drive</button>
-          <button class="btn" href="#">Contact Us</button>
+          ${wishlistButton}
       </div>
       </div>
     </div>
   `;
 };
+
+
 
 /* ***************************
  * Build Inventory View

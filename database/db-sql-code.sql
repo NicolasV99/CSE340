@@ -267,3 +267,12 @@ SET
     inv_thumbnail = REGEXP_REPLACE(inv_thumbnail, '^(/images/)', '/images/vehicles/')
 WHERE 
     inv_image LIKE '/images/%' OR inv_thumbnail LIKE '/images/%';
+
+
+-- Wishlist Table
+CREATE TABLE wishlist (
+    wishlist_id SERIAL PRIMARY KEY,
+    account_id INT REFERENCES account(account_id) ON DELETE CASCADE,
+    inv_id INT REFERENCES inventory(inv_id) ON DELETE CASCADE,
+    UNIQUE(account_id, inv_id) -- Prevents duplicate entries
+);

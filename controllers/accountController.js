@@ -250,11 +250,4 @@ async function updatePassword(req, res) {
   }
 }
 
-module.exports = {
-  buildAccountUpdateView,
-  updateAccount,
-  updatePassword,
-};
-
-
 module.exports = { buildLogin, buildRegister, registerAccount, accountLogin, buildAccountManagement, logoutAccount, buildAccountUpdateView, updateAccount, updatePassword}

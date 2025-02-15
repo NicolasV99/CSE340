@@ -258,6 +258,11 @@ h1{
   text-decoration: none;
 }
 
+#inv-display li a img{
+  width: 250px;
+  height: auto;    
+}
+
 #inv-display .namePrice h2 a:hover{
   color: #000;
   font-weight: 600;
@@ -642,7 +647,7 @@ noscript {
   padding: 20px;
   border-radius: 8px;
   max-width: 400px;
-  margin: 40px auto; /* Centrado */
+  margin: 40px auto; 
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -689,8 +694,8 @@ noscript {
   background-color: #f3f3f3;
   padding: 20px;
   border-radius: 8px;
-  max-width: 100%; /* Asegura que el formulario no se desborde */
-  margin: 20px auto; /* Centrado */
+  max-width: 100%; 
+  margin: 20px auto; 
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -705,7 +710,7 @@ noscript {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 100%; /* Asegura que los campos ocupen el ancho completo */
+  width: 100%; 
 }
 
 .add-inventory-form button {
@@ -721,7 +726,7 @@ noscript {
   transition: background-color 0.3s ease;
   cursor: pointer;
   font-size: 14px;
-  width: 100%; /* Hacer que el botón ocupe todo el ancho */
+  width: 100%; 
 }
 
 .add-inventory-form button:hover {
@@ -815,7 +820,7 @@ noscript {
   width: 100%;
   margin: 20px auto;
   padding: 20px;
-  background-color: #f3f3f3; /* Light grey background */
+  background-color: #f3f3f3; 
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -896,7 +901,7 @@ noscript {
   width: 100%;
   margin: 20px auto;
   padding: 20px;
-  background-color: #f3f3f3; /* Light grey background */
+  background-color: #f3f3f3; 
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -1000,8 +1005,80 @@ noscript {
 }
 
 
+/***Wisthlist View****/
 
+/* Wishlist Container */
+.wishlist-container {
+  max-width: 90%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
 
+/* Wishlist Table */
+.wishlist-table {
+  width: 100%;
+  margin-top: 15px;
+  border-collapse: collapse;
+}
+
+/* Table Headers */
+.wishlist-table th {
+  background-color: #3B3D3D;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* Table Cells */
+.wishlist-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Alternating Row Colors */
+.wishlist-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Hover Effect */
+.wishlist-table tr:hover {
+  background-color: #e3e3e3;
+}
+
+/* Remove Button */
+.remove-btn {
+  width: 100%;
+  background-color: transparent;
+  color: #3B3D3D;
+  text-decoration: none;
+  margin-top: 15px;
+  padding: 10px 10px;
+  border-radius: 5px;
+  border: 1px solid #3B3D3D;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.remove-btn:hover {
+  background-color: #3B3D3D;
+  color: #fff;
+}
+
+/* Flash Message */
+.flash-message {
+  color: #d9534f;
+  font-weight: bold;
+  margin-top: 10px;
+}
 
 
 
@@ -1335,6 +1412,25 @@ noscript {
     font-size: 1.1rem;
     padding: 12px;
   }
+
+  /*Wisthlist View*/
+
+  .wishlist-container {
+    max-width: 60%;
+    padding: 30px;
+  }
+
+  .wishlist-table th,
+  .wishlist-table td {
+    font-size: 18px;
+    padding: 12px;
+  }
+
+  .remove-btn {
+    font-size: 16px;
+    padding: 10px 15px;
+  }
+
 
 }
 
